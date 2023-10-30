@@ -6,19 +6,10 @@
     android:id="@+id/drawerLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start">
 
-    <!-- Navigation View (The Drawer) -->
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/navigationView"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        >
-        <include layout="@layout/menu_drawer"/>
-    </com.google.android.material.navigation.NavigationView>
-
-    <!-- Your Existing Layout Goes Here -->
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
@@ -54,11 +45,6 @@
                 android:textColor="@color/black"
                 />
         </androidx.appcompat.widget.Toolbar>
-
-
-
-
-
         <!-- Container in the Middle -->
         <FrameLayout
             android:id="@+id/Midcontainer"
@@ -69,12 +55,22 @@
             android:layout_below="@id/customToolbar">
         </FrameLayout>
 
+        <LinearLayout
+            android:id="@+id/sideMenu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/customToolbar"
+            android:visibility="gone">
+
+            <include layout="@layout/menu_drawer" />
+        </LinearLayout>
+
         <!-- Bottom Navigation Bar -->
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottomNavigation"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?android:colorPrimary"
+            android:background="?colorPrimary"
             app:itemIconTint="@color/black"
             app:itemTextColor="@color/black"
             android:layout_alignParentBottom="true"

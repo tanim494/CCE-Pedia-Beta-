@@ -13,7 +13,6 @@
         android:shadowColor="#000000"
         android:shadowRadius="3"
         android:text="Click on a faculty to Call"
-
         android:textColor="#E6E5E5"
         android:textSize="16dp" />
 

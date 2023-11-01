@@ -1,20 +1,14 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+<resources>
     <style name="Theme.UniGuide" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <!-- Primary brand color. -->
         <item name="colorPrimary">#738F73</item>
-        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorPrimaryVariant">#516751</item>
         <item name="colorOnPrimary">@color/white</item>
-        <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/teal_200</item>
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
-        <!-- Status bar color. -->
         <item name="android:statusBarColor">?android:colorPrimary</item>
         <item name="android:navigationBarColor">?android:colorPrimary</item>
-        <!-- Customize your theme here. -->
     </style>
-
     <style name="ButtonStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -28,5 +22,7 @@
         <item name="android:layout_marginBottom">80px</item>
         <item name="android:textStyle">bold</item>
     </style>
-
+    <style name="Button4">
+        <item name="cornerSize">20%</item>
+    </style>
 </resources>

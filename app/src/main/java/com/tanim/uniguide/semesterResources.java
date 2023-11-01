@@ -26,61 +26,21 @@ import androidx.fragment.app.Fragment;
             TextView semester8 = rootView.findViewById(R.id.semester8);
 
             // Set click listeners for each TextView
-            semester1.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    openWebPage("https://jpst.it/3q4Ai");
-                }
-            });
+            semester1.setOnClickListener(v -> openWebPage("https://jpst.it/3q4Ai"));
 
-            semester2.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    openWebPage("https://jpst.it/3q4Em");
-                }
-            });
+            semester2.setOnClickListener(v -> openWebPage("https://jpst.it/3q4Em"));
 
-            semester3.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    openWebPage("https://jpst.it/3q4I3");
-                }
-            });
+            semester3.setOnClickListener(v -> openWebPage("https://jpst.it/3q4I3"));
 
-            semester4.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    openWebPage("https://jpst.it/3q4Jm");
-                }
-            });
+            semester4.setOnClickListener(v -> openWebPage("https://jpst.it/3q4Jm"));
 
-            semester5.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    openWebPage("https://jpst.it/3q6UJ");
-                }
-            });
+            semester5.setOnClickListener(v -> openWebPage("https://jpst.it/3q6UJ"));
 
-            semester6.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    openWebPage("https://jpst.it/3q6Wm");
-                }
-            });
+            semester6.setOnClickListener(v -> openWebPage("https://jpst.it/3q6Wm"));
 
-            semester7.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    openWebPage("https://jpst.it/3q6X0");
-                }
-            });
+            semester7.setOnClickListener(v -> openWebPage("https://jpst.it/3q6X0"));
 
-            semester8.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    openWebPage("https://jpst.it/3q6XV");
-                }
-            });
+            semester8.setOnClickListener(v -> openWebPage("https://jpst.it/3q6XV"));
 
             return rootView;
         }

@@ -18,15 +18,12 @@ public class Home extends Fragment {
 
         // Handle the website link
         TextView websiteLink = view.findViewById(R.id.websiteLink);
-        websiteLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // Open the website link when clicked
-                String url = "https://drive.google.com/file/d/16WpJ6bwxiWST7WjKM9h473h5vmHgSFBb/view?usp=drive_link";
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(url));
-                startActivity(intent);
-            }
+        websiteLink.setOnClickListener(view1 -> {
+            // Open the website link when clicked
+            String url = "https://drive.google.com/file/d/16WpJ6bwxiWST7WjKM9h473h5vmHgSFBb/view?usp=drive_link";
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(url));
+            startActivity(intent);
         });
 
         return view;

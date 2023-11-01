@@ -27,65 +27,28 @@ public class resources extends Fragment {
         TextView routinePage = rootView.findViewById(R.id.openRoutinePage);
         TextView iiucPage = rootView.findViewById(R.id.openIIUCPage);
 
-        facebookPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openWebPage("https://www.facebook.com/profile.php?id=100090282199663");
-            }
+        facebookPage.setOnClickListener(v -> openWebPage("https://www.facebook.com/profile.php?id=100090282199663"));
+
+        facebookFemPage.setOnClickListener(v -> openWebPage("https://www.facebook.com/profile.php?id=100091710725410"));
+
+        questionPage.setOnClickListener(v -> openWebPage("https://drive.google.com/drive/folders/19kpQtcze690uvLwJRz0uhfmy4Ji0qp7e"));
+
+        semesterResourcesPage.setOnClickListener(v -> {
+            FragmentManager fragmentManager = getFragmentManager();
+            assert fragmentManager != null;
+            FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.replace(R.id.Midcontainer, new semesterResources());
+            fragmentTransaction.addToBackStack(null); // Optional: Add transaction to the back stack
+            fragmentTransaction.commit();
         });
 
-        facebookFemPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openWebPage("https://www.facebook.com/profile.php?id=100091710725410");
-            }
-        });
+        impPage.setOnClickListener(v -> openWebPage("https://jpst.it/3q6PY"));
 
-        questionPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openWebPage("https://drive.google.com/drive/folders/19kpQtcze690uvLwJRz0uhfmy4Ji0qp7e");
-            }
-        });
+        busPage.setOnClickListener(v -> openWebPage("https://jpst.it/3q4Pl"));
 
-        semesterResourcesPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                FragmentManager fragmentManager = getFragmentManager();
-                FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-                fragmentTransaction.replace(R.id.Midcontainer, new semesterResources());
-                fragmentTransaction.addToBackStack(null); // Optional: Add transaction to the back stack
-                fragmentTransaction.commit();
-            }
-        });
+        routinePage.setOnClickListener(v -> openWebPage("https://jpst.it/3q4Rc"));
 
-        impPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openWebPage("https://jpst.it/3q6PY");
-            }
-        });
-
-        busPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openWebPage("https://jpst.it/3q4Pl");
-            }
-        });
-
-        routinePage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openWebPage("https://jpst.it/3q4Rc");
-            }
-        });
-
-        iiucPage.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openWebPage("https://www.iiuc.ac.bd/cce/bachelor");
-            }
-        });
+        iiucPage.setOnClickListener(v -> openWebPage("https://www.iiuc.ac.bd/cce/bachelor"));
 
         return rootView;
     }

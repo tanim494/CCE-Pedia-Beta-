@@ -5,12 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.view.View;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -26,20 +20,17 @@ public class loading extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
 
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                if (isFirstRun()) {
-                    // First run: open the login activity
-                    Intent intent = new Intent(loading.this, LoginActivity.class);
-                    startActivity(intent);
-                } else {
-                    // Not the first run: open the main activity
-                    Intent intent = new Intent(loading.this, MainActivity.class);
-                    startActivity(intent);
-                }
-                finish(); // Close the splash activity
+        new Handler().postDelayed(() -> {
+            if (isFirstRun()) {
+                // First run: open the login activity
+                Intent intent = new Intent(loading.this, LoginActivity.class);
+                startActivity(intent);
+            } else {
+                // Not the first run: open the main activity
+                Intent intent = new Intent(loading.this, MainActivity.class);
+                startActivity(intent);
             }
+            finish(); // Close the splash activity
         }, SPLASH_TIMEOUT); // 3000 milliseconds (3 seconds)
 
     }

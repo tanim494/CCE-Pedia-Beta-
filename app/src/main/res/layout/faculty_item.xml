@@ -17,7 +17,7 @@
 
     <!-- Faculty Name -->
     <TextView
-        android:id="@+id/facultyName"
+        android:id="@+id/fName"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Faculty Name"
@@ -28,7 +28,7 @@
 
     <!-- Faculty Designation -->
     <TextView
-        android:id="@+id/facultyDesignation"
+        android:id="@+id/fDesignation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Designation"
@@ -39,7 +39,7 @@
 
     <!-- Faculty Contact Number -->
     <TextView
-        android:id="@+id/facultyContactNumber"
+        android:id="@+id/fPhoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Contact Number"

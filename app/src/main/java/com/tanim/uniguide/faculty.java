@@ -6,10 +6,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -27,35 +27,21 @@ public class faculty extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_faculty, container, false);
 
-        ArrayAdapter<String> facultyAdapter = new ArrayAdapter<String>(requireContext(), R.layout.faculty_item, R.id.facultyName, facultyNames) {
-            @NonNull
-            @Override
-            public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-                View view = super.getView(position, convertView, parent);
-
-                ImageView facultyImage = view.findViewById(R.id.facultyImage);
-                facultyImage.setImageResource(facultyImages[position]);
-
-                return view;
-            }
-        };
+        FacultyAdapter facultyAdapter = new FacultyAdapter(requireContext(), facultyNames, facultyDesignations, facultyContactNumbers, facultyImages);
 
         ListView facultyListView = rootView.findViewById(R.id.facultyListView);
         facultyListView.setAdapter(facultyAdapter);
 
         // Add the OnItemClickListener for opening the dialer and displaying a toast
-        facultyListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                String phoneNumber = facultyContactNumbers[position];
-                String facultyName = facultyNames[position];
+        facultyListView.setOnItemClickListener((parent, view, position, id) -> {
+            String phoneNumber = facultyContactNumbers[position];
+            String facultyName = facultyNames[position];
 
-                // Open the dialer
-                dialPhoneNumber(phoneNumber);
+            // Open the dialer
+            dialPhoneNumber(phoneNumber);
 
-                // Display a toast with the faculty's name
-                Toast.makeText(requireContext(), "Calling " + facultyName + " Sir", Toast.LENGTH_SHORT).show();
-            }
+            // Display a toast with the faculty's name
+            Toast.makeText(requireContext(), "Calling " + facultyName + " Sir", Toast.LENGTH_SHORT).show();
         });
 
         return rootView;
@@ -65,5 +51,45 @@ public class faculty extends Fragment {
         Intent intent = new Intent(Intent.ACTION_DIAL);
         intent.setData(Uri.parse("tel:" + phoneNumber));
         startActivity(intent);
+    }
+
+    // Custom ArrayAdapter to display faculty information
+    private static class FacultyAdapter extends ArrayAdapter<String> {
+        private final String[] facultyNames;
+        private final String[] facultyDesignations;
+        private final String[] facultyContactNumbers;
+        private final int[] facultyImages;
+
+        FacultyAdapter(@NonNull android.content.Context context, String[] facultyNames, String[] facultyDesignations, String[] facultyContactNumbers, int[] facultyImages) {
+            super(context, R.layout.faculty_item, facultyNames);
+            this.facultyNames = facultyNames;
+            this.facultyDesignations = facultyDesignations;
+            this.facultyContactNumbers = facultyContactNumbers;
+            this.facultyImages = facultyImages;
+        }
+
+        @NonNull
+        @Override
+        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+            View view = convertView;
+            if (view == null) {
+                LayoutInflater inflater = LayoutInflater.from(getContext());
+                view = inflater.inflate(R.layout.faculty_item, parent, false);
+            }
+
+            ImageView facultyImage = view.findViewById(R.id.facultyImage);
+            facultyImage.setImageResource(facultyImages[position]);
+
+            TextView facultyName = view.findViewById(R.id.fName);
+            facultyName.setText(facultyNames[position]);
+
+            TextView facultyDesignation = view.findViewById(R.id.fDesignation);
+            facultyDesignation.setText(facultyDesignations[position]);
+
+            TextView facultyPhoneNumber = view.findViewById(R.id.fPhoneNumber);
+            facultyPhoneNumber.setText(facultyContactNumbers[position]);
+
+            return view;
+        }
     }
 }

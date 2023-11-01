@@ -9,27 +9,17 @@ import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationView;
-
-import org.w3c.dom.Text;
 
 public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigation;
@@ -38,14 +28,13 @@ public class MainActivity extends AppCompatActivity {
     TextView stName;
     TextView stSem;
     String menuResLink = "https://cce.iiuc.ac.bd";
-    private DrawerLayout drawerLayout;
+
     private ImageView menuIcon;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        drawerLayout = findViewById(R.id.drawerLayout);
         menuIcon = findViewById(R.id.menuIcon);
         sideMenu = findViewById(R.id.sideMenu);
         toTxt = findViewById(R.id.toolText);
@@ -63,26 +52,20 @@ public class MainActivity extends AppCompatActivity {
 
         Drawable originalDrawable = getResources().getDrawable(R.drawable.menu); // Your original image resource
         Drawable newDrawable = getResources().getDrawable(R.drawable.mn_close); // The new image you want to display
-        menuIcon.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (sideMenu.getVisibility() == View.VISIBLE) {
-                    sideMenu.setVisibility(View.INVISIBLE);
-                    menuIcon.setImageDrawable(originalDrawable);
-                } else {
-                    sideMenu.setVisibility(View.VISIBLE);
-                    menuIcon.setImageDrawable(newDrawable);
-                }
+        menuIcon.setOnClickListener(v -> {
+            if (sideMenu.getVisibility() == View.VISIBLE) {
+                sideMenu.setVisibility(View.INVISIBLE);
+                menuIcon.setImageDrawable(originalDrawable);
+            } else {
+                sideMenu.setVisibility(View.VISIBLE);
+                menuIcon.setImageDrawable(newDrawable);
             }
         });
 
         Button ediIn = findViewById(R.id.editInfo);
-        ediIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                startActivity(intent);
-            }
+        ediIn.setOnClickListener(view -> {
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
         });
 
         FragmentManager fgMan = getSupportFragmentManager();
@@ -93,67 +76,59 @@ public class MainActivity extends AppCompatActivity {
         tran.commit();
 
 
-        bottomNavigation.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        bottomNavigation.setOnNavigationItemSelectedListener(item -> {
 
-                if (item.getItemId() == R.id.nv_home) {
-                    FragmentManager fgMan = getSupportFragmentManager();
-                    FragmentTransaction tran = fgMan.beginTransaction();
+            if (item.getItemId() == R.id.nv_home) {
+                FragmentManager fgMan1 = getSupportFragmentManager();
+                FragmentTransaction tran1 = fgMan1.beginTransaction();
 
-                    Home nFg = new Home();
-                    tran.replace(R.id.Midcontainer,nFg);
-                    tran.commit();
-                    toTxt.setText("CCE Pedia");
-                    sideMenu.setVisibility(View.INVISIBLE);
-                    menuIcon.setImageDrawable(originalDrawable);
+                Home nFg1 = new Home();
+                tran1.replace(R.id.Midcontainer, nFg1);
+                tran1.commit();
+                toTxt.setText("CCE Pedia");
+                sideMenu.setVisibility(View.INVISIBLE);
+                menuIcon.setImageDrawable(originalDrawable);
 
-                } else if (item.getItemId() == R.id.nv_faculty) {
-                    FragmentManager fgMan = getSupportFragmentManager();
-                    FragmentTransaction tran = fgMan.beginTransaction();
+            } else if (item.getItemId() == R.id.nv_faculty) {
+                FragmentManager fgMan1 = getSupportFragmentManager();
+                FragmentTransaction tran1 = fgMan1.beginTransaction();
 
-                    faculty nFg = new faculty();
-                    tran.replace(R.id.Midcontainer,nFg);
-                    tran.commit();
-                    toTxt.setText("Faculties");
-                    sideMenu.setVisibility(View.INVISIBLE);
-                    menuIcon.setImageDrawable(originalDrawable);
+                faculty nFg1 = new faculty();
+                tran1.replace(R.id.Midcontainer, nFg1);
+                tran1.commit();
+                toTxt.setText("Faculties");
+                sideMenu.setVisibility(View.INVISIBLE);
+                menuIcon.setImageDrawable(originalDrawable);
 
-                } else if (item.getItemId() == R.id.nv_resource) {
-                    FragmentManager fgMan = getSupportFragmentManager();
-                    FragmentTransaction tran = fgMan.beginTransaction();
+            } else if (item.getItemId() == R.id.nv_resource) {
+                FragmentManager fgMan1 = getSupportFragmentManager();
+                FragmentTransaction tran1 = fgMan1.beginTransaction();
 
-                    resources nFg = new resources();
-                    tran.replace(R.id.Midcontainer,nFg);
-                    tran.commit();
-                    toTxt.setText("Resources");
-                    sideMenu.setVisibility(View.INVISIBLE);
-                    menuIcon.setImageDrawable(originalDrawable);
+                resources nFg1 = new resources();
+                tran1.replace(R.id.Midcontainer, nFg1);
+                tran1.commit();
+                toTxt.setText("Resources");
+                sideMenu.setVisibility(View.INVISIBLE);
+                menuIcon.setImageDrawable(originalDrawable);
 
-                } else if (item.getItemId() == R.id.nv_author) {
-                    Toast.makeText(MainActivity.this, "Author Section", Toast.LENGTH_SHORT).show();
+            } else if (item.getItemId() == R.id.nv_author) {
+                FragmentManager fgMan1 = getSupportFragmentManager();
+                FragmentTransaction tran1 = fgMan1.beginTransaction();
 
-                    FragmentManager fgMan = getSupportFragmentManager();
-                    FragmentTransaction tran = fgMan.beginTransaction();
-
-                    author nFg = new author();
-                    tran.replace(R.id.Midcontainer,nFg);
-                    tran.commit();
-                    toTxt.setText("Author");
-                    sideMenu.setVisibility(View.INVISIBLE);
-                    menuIcon.setImageDrawable(originalDrawable);
-                }
-                return true;
+                author nFg1 = new author();
+                tran1.replace(R.id.Midcontainer, nFg1);
+                tran1.commit();
+                toTxt.setText("Author");
+                sideMenu.setVisibility(View.INVISIBLE);
+                menuIcon.setImageDrawable(originalDrawable);
             }
+            return true;
         });
         TextView menuSemRes = findViewById(R.id.menuSemRes);
-        menuSemRes.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW);
-                intent.setData(Uri.parse(menuResLink));
-                startActivity(intent);
-            }
+        menuSemRes.setOnClickListener(view -> {
+            Intent intent = new Intent(Intent.ACTION_VIEW);
+            intent.setData(Uri.parse(menuResLink));
+            startActivity(intent);
         });
 
         switch (semesterId) {

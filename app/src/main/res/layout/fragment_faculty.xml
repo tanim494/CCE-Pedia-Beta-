@@ -7,10 +7,12 @@
     >
 
     <TextView
+        android:id="@+id/callHeader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:shadowColor="#000000"
+        android:padding="1dp"
         android:shadowRadius="3"
         android:text="Click on a faculty to Call"
         android:textColor="#E6E5E5"
@@ -21,5 +23,6 @@
         android:id="@+id/facultyListView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/callHeader"
         android:layout_marginTop="50px"/>
 </RelativeLayout>

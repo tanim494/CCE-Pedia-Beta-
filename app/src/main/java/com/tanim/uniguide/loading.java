@@ -3,14 +3,16 @@ package com.tanim.uniguide;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.WindowManager;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 public class loading extends AppCompatActivity {
-    private static final int SPLASH_TIMEOUT = 3000; // 3 seconds
     private static final String PREFS_NAME = "MyPrefsFile";
     private static final String FIRSTRUN_KEY = "firstrun";
 
@@ -19,7 +21,6 @@ public class loading extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_loading);
 
         new Handler().postDelayed(() -> {
@@ -33,7 +34,7 @@ public class loading extends AppCompatActivity {
                 startActivity(intent);
             }
             finish(); // Close the splash activity
-        }, SPLASH_TIMEOUT); // 3000 milliseconds (3 seconds)
+        }, 1500); // 3000 milliseconds (3 seconds)
 
     }
 

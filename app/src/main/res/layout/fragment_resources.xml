@@ -29,6 +29,11 @@
         android:text="Semester Wise Resources" />
 
     <TextView
+        android:id="@+id/batchWise"
+        style="@style/ButtonStyle"
+        android:text="Batch Wise Resources"/>
+
+    <TextView
         android:id="@+id/openImpPage"
         style="@style/ButtonStyle"
         android:text="Important Resources"/>

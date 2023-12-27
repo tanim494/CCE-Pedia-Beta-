@@ -6,7 +6,6 @@ import static com.tanim.uniguide.LoginActivity.STUDENT_NAME_KEY;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
@@ -27,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     TextView toTxt;
     TextView stName;
     TextView stSem;
+    TextView updateBt;
+    TextView notice;
     String menuResLink = "https://cce.iiuc.ac.bd";
 
     private ImageView menuIcon;
@@ -38,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         menuIcon = findViewById(R.id.menuIcon);
         sideMenu = findViewById(R.id.sideMenu);
         toTxt = findViewById(R.id.toolText);
+        updateBt = findViewById(R.id.updateButton);
+        notice = findViewById(R.id.noticeButton);
         bottomNavigation  = findViewById(R.id.bottomNavigation);
 
 
@@ -50,15 +53,13 @@ public class MainActivity extends AppCompatActivity {
         stName.setText("Name: " + studentName);
         stSem.setText("Semester: " + semesterId);
 
-        Drawable originalDrawable = getResources().getDrawable(R.drawable.menu); // Your original image resource
-        Drawable newDrawable = getResources().getDrawable(R.drawable.mn_close); // The new image you want to display
         menuIcon.setOnClickListener(v -> {
             if (sideMenu.getVisibility() == View.VISIBLE) {
                 sideMenu.setVisibility(View.INVISIBLE);
-                menuIcon.setImageDrawable(originalDrawable);
+                menuIcon.setImageResource(R.drawable.menu);
             } else {
                 sideMenu.setVisibility(View.VISIBLE);
-                menuIcon.setImageDrawable(newDrawable);
+                menuIcon.setImageResource(R.drawable.mn_close);
             }
         });
 
@@ -87,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                 tran1.commit();
                 toTxt.setText("CCE Pedia");
                 sideMenu.setVisibility(View.INVISIBLE);
-                menuIcon.setImageDrawable(originalDrawable);
+                menuIcon.setImageResource(R.drawable.menu);
 
             } else if (item.getItemId() == R.id.nv_faculty) {
                 FragmentManager fgMan1 = getSupportFragmentManager();
@@ -98,7 +99,7 @@ public class MainActivity extends AppCompatActivity {
                 tran1.commit();
                 toTxt.setText("Faculties");
                 sideMenu.setVisibility(View.INVISIBLE);
-                menuIcon.setImageDrawable(originalDrawable);
+                menuIcon.setImageResource(R.drawable.menu);
 
             } else if (item.getItemId() == R.id.nv_resource) {
                 FragmentManager fgMan1 = getSupportFragmentManager();
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
                 tran1.commit();
                 toTxt.setText("Resources");
                 sideMenu.setVisibility(View.INVISIBLE);
-                menuIcon.setImageDrawable(originalDrawable);
+                menuIcon.setImageResource(R.drawable.menu);
 
             } else if (item.getItemId() == R.id.nv_author) {
                 FragmentManager fgMan1 = getSupportFragmentManager();
@@ -120,7 +121,8 @@ public class MainActivity extends AppCompatActivity {
                 tran1.commit();
                 toTxt.setText("Author");
                 sideMenu.setVisibility(View.INVISIBLE);
-                menuIcon.setImageDrawable(originalDrawable);
+                menuIcon.setImageResource(R.drawable.menu);
+
             }
             return true;
         });

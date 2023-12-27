@@ -22,6 +22,7 @@ public class resources extends Fragment {
         TextView facebookFemPage = rootView.findViewById(R.id.openFacebookFemPage);
         TextView questionPage = rootView.findViewById(R.id.openQuestionPage);
         TextView semesterResourcesPage = rootView.findViewById(R.id.openSemesterResourcesPage);
+        TextView batchWise = rootView.findViewById(R.id.batchWise);
         TextView impPage = rootView.findViewById(R.id.openImpPage);
         TextView busPage = rootView.findViewById(R.id.openBusPage);
         TextView routinePage = rootView.findViewById(R.id.openRoutinePage);
@@ -33,6 +34,16 @@ public class resources extends Fragment {
 
         questionPage.setOnClickListener(v -> openWebPage("https://drive.google.com/drive/folders/19kpQtcze690uvLwJRz0uhfmy4Ji0qp7e"));
 
+        batchWise.setOnClickListener(v -> openWebPage("https://jpst.it/3wo0t"));
+
+        impPage.setOnClickListener(v -> openWebPage("https://jpst.it/3q6PY"));
+
+        busPage.setOnClickListener(v -> openWebPage("https://jpst.it/3q4Pl"));
+
+        routinePage.setOnClickListener(v -> openWebPage("https://jpst.it/3q4Rc"));
+
+        iiucPage.setOnClickListener(v -> openWebPage("https://www.iiuc.ac.bd/cce/bachelor"));
+
         semesterResourcesPage.setOnClickListener(v -> {
             FragmentManager fragmentManager = getFragmentManager();
             assert fragmentManager != null;
@@ -42,13 +53,6 @@ public class resources extends Fragment {
             fragmentTransaction.commit();
         });
 
-        impPage.setOnClickListener(v -> openWebPage("https://jpst.it/3q6PY"));
-
-        busPage.setOnClickListener(v -> openWebPage("https://jpst.it/3q4Pl"));
-
-        routinePage.setOnClickListener(v -> openWebPage("https://jpst.it/3q4Rc"));
-
-        iiucPage.setOnClickListener(v -> openWebPage("https://www.iiuc.ac.bd/cce/bachelor"));
 
         return rootView;
     }

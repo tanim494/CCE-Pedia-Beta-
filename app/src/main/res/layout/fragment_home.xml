@@ -14,7 +14,7 @@
         <!-- Text related to the introduction -->
         <ImageView
             android:layout_width="wrap_content"
-            android:layout_height="600px"
+            android:layout_height="200dp"
             android:scaleType="centerCrop"
             android:src="@drawable/introcover" />
 
@@ -36,7 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:background="@drawable/textbg"
-            android:layout_marginTop="20px"
+            android:layout_marginTop="10dp"
             android:textAlignment="center"
             android:fontFamily="sans-serif-thin"
             android:textStyle="bold"

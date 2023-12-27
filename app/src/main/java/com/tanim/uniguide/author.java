@@ -29,7 +29,7 @@ public class author extends Fragment {
         // Facebook Button
         LinearLayout facebookButton = view.findViewById(R.id.facebookButton);
         facebookButton.setOnClickListener(view1 -> {
-            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://m.facebook.com/profile.php/?id=100012799027969"));
+            Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://m.facebook.com/tanim494"));
             startActivity(intent);
         });
 
